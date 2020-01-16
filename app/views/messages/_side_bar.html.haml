@@ -1,0 +1,28 @@
+.chat-side
+  .side-header 
+    .side-header__box
+      %p.side-header__box_username
+        hataken
+      %ul.side-header__box_icon
+        %li.side-header_box_edituser
+          =link_to "#" do
+            = icon('fas', 'cog')
+        %li.side-header_box_newgroup
+          = link_to "#" do
+            = icon('fas', 'edit')
+  .group-list
+    .group
+      %p.group__name
+        test
+      %p.group__message
+        hello
+    .group
+      %p.group__name
+        test
+      %p.group__message
+        hello
+    .group
+      %p.group__name
+        test
+      %p.group__message
+        hello
