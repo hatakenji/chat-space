@@ -8,21 +8,12 @@
           =link_to edit_user_path(current_user) do
             = icon('fas', 'cog')
         %li.side-header_box_newgroup
-          = link_to "#" do
+          = link_to new_group_path do
             = icon('fas', 'edit')
   .group-list
-    .group
-      %p.group__name
-        test
-      %p.group__message
-        hello
-    .group
-      %p.group__name
-        test
-      %p.group__message
-        hello
-    .group
-      %p.group__name
-        test
-      %p.group__message
-        hello
+    - current_user.groups.each do |group|
+      .group
+        %p.group__name
+          =group.name
+        %p.group__message
+          メッセージはまだありません
