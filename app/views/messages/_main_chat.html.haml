@@ -10,34 +10,22 @@
         = link_to "#" do 
           Edit
   .message-list
+    = render @messages
     .message
       .message__header
         .message__header_name
-          test
+          = message.user.name
         .message__header_date
-          2020/1/16
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
       .message__text
-        hello
-    .message
-      .message__header
-        .message__header_name
-          test
-        .message__header_date
-          2020/1/16
-      .message__text
-        hello
-    .message
-      .message__header
-        .message__header_name
-          test
-        .message__header_date
-          2020/1/16
-      .message__text
-        hello
+        - if message.content.present?
+          %p.lower-message__content
+            = message.content
+        = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
   .message-form
-    .form-box
-      %input{type: "text" , class: "form-box_text" , placeholder: "type a message"}
-      %label{class: "form-box_image"}
-        = icon('fas' , 'image')
-        %input{type: "file", class: "form-box_image_file"}
-    %input{type: "submit" , class: "submit-button"}
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
