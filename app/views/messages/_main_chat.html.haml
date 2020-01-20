@@ -2,42 +2,20 @@
   .group-info
     .group-info_left_box
       .group-info_left_box_group
-        test
+        = @group.name
       .group-info_left_box_member
-        tekona
+        Member：名前
     .group-info_right_box
       %a.group-info__right_box_button
-        = link_to "#" do 
-          Edit
+        = link_to "EDIT","edit",class: 'button' 
   .message-list
-    .message
-      .message__header
-        .message__header_name
-          test
-        .message__header_date
-          2020/1/16
-      .message__text
-        hello
-    .message
-      .message__header
-        .message__header_name
-          test
-        .message__header_date
-          2020/1/16
-      .message__text
-        hello
-    .message
-      .message__header
-        .message__header_name
-          test
-        .message__header_date
-          2020/1/16
-      .message__text
-        hello
+    = render @messages
   .message-form
-    .form-box
-      %input{type: "text" , class: "form-box_text" , placeholder: "type a message"}
-      %label{class: "form-box_image"}
-        = icon('fas' , 'image')
-        %input{type: "file", class: "form-box_image_file"}
-    %input{type: "submit" , class: "submit-button"}
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
