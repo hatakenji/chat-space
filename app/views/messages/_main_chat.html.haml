@@ -4,10 +4,11 @@
       .group-info_left_box_group
         = @group.name
       .group-info_left_box_member
-        Member：名前
+        - @group.users.each do |user|
+          = user.name
     .group-info_right_box
       %a.group-info__right_box_button
-        = link_to "EDIT","edit",class: 'button' 
+        = link_to "EDIT", edit_group_path(@group.id)
   .message-list
     = render @messages
   .message-form
