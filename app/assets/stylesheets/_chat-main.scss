@@ -59,13 +59,11 @@
      }
    }
    .message-form {
-     display: flex;
      height: 90px;
      background-color: #d2d2d2;
      padding: 20px 40px;
      .form-box {
        width: 100%;
-       display: flex;
        position: relative;
        .form-box_text {
          width: 100%;
@@ -76,9 +74,9 @@
          position: absolute;
          right: 10px;
          top: 10px;
-       }
-       .form-box_image_file {
-         display: none;
+         .form-box_image_file {
+          display: none;
+        }
        }
      }
      .submit-button {

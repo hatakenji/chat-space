@@ -11,11 +11,10 @@
   .message-list
     = render @messages
   .message-form
-    .form
-      = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-        .form__mask
-          = f.label :image, class: 'form__mask__image' do
-            = icon('fas', 'image', class: 'icon')
-            = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form-box_text' , placeholder: 'type a message'
+      .form-box
+        = f.label :image, class: 'form-box_image ' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'form-box_image_file'
+      = f.submit 'Send', class: 'submit-button'

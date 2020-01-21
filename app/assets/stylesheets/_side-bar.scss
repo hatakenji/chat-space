@@ -43,18 +43,23 @@
     height: calc(100vh - 100px);
     padding: 20px;
     box-sizing: border-box;
+    overflow: scroll;
     .group {
       width: 260px;
       height: 45px;
       margin-bottom: 45px;
       font-weight: bold;
-      color: #ffffff;
-      &__name {
+      a {
+        text-decoration: none;
+      }
+      .group__name {
         font-size: 15px;
         margin-bottom: 5px;
+        color: #ffffff;
       }
-      &__message {
+      .group__message {
         font-size: 11px;
+        color: #ffffff;
       }
     }
   }
