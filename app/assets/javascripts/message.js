@@ -71,19 +71,19 @@ $(function(){
     data: {id: last_message_id}
   })
   .done(function(messages) {
-    if (messages.length !== 0) {
-    var insertHTML = '';
-    $.each(messages, function(i, message) {
-      insertHTML += buildHTML(message)
-    });
-    $('.message-list').append(insertHTML);
-    $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
-    $(".new_message")[0].reset();
-    $(".form-submit").prop("disabled", false);
-  }
+   if (messages.length !== 0) {
+     var insertHTML = '';
+     $.each(messages, function(i, message) {
+       insertHTML += buildHTML(message)
+     });
+     $('.message-list').append(insertHTML);
+     $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
+     $(".new_message")[0].reset();
+     $(".form-submit").prop("disabled", false);
+    }
   })
   .fail(function() {
-    console.log('error');
+    alert('error');
   });
 };
 if (document.location.href.match(/\/groups\/\d+\/messages/)) {
